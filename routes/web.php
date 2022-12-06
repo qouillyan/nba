@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CommentsController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PlayersController;
 use App\Http\Controllers\RegisterController;
@@ -22,6 +23,7 @@ Route::get('/teams/{id}', [TeamsController::class, 'show'])->name('single-team')
 Route::get('/players/{id}', [PlayersController::class, 'show'])->name('single-player');
 Route::get('/register', [RegisterController::class, 'create']);
 Route::post('/register', [RegisterController::class, 'store']);
+Route::post('/teams/{id}/comments', [CommentsController::class, 'store']);
 
 Route::get('/login', [LoginController::class, 'create'])->name('login');
 Route::post('/login', [LoginController::class, 'store']);

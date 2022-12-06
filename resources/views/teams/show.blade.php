@@ -34,5 +34,33 @@
 
         </table>
 
+        <br>
+
+        <form method="POST" action="/teams/{{ $team->id }}/comments">
+
+            @csrf
+
+            <div class="mb-3">
+                <label for="title" class="form-label">Comment:</label>
+                <input type="text" name="body" class="form-control" id="title" placeholder="Comment">
+            </div>
+
+            @error('body')
+                @include('partials.error')
+            @enderror
+
+                <button type="submit" class="btn btn-primary mt-3">Send comment</button>
+
+        </form>
+
+        <h3>Comments</h3>
+
+        @foreach($team->comments as $comment)
+
+            <p>[ {{ $comment->user->name }} ]: {{ $comment->body }}</p>
+            
+        @endforeach
+
+
 
 @endsection
