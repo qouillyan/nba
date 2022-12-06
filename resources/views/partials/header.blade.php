@@ -1,6 +1,10 @@
 <header>
-    <a href="/">Teams</a>
-    <a href="/register">Register</a>
-    <a href="/login">Log in</a>
-    <a href="/logout">Log out</a>
+    @if(Auth::check())
+        <a href="/">Teams</a>
+        <a href="/logout">Log out</a>
+        <p>{{ auth()->user()->name }}</p>
+    @else
+        <a href="/register">Register</a>
+        <a href="/login">Log in</a>
+    @endif
 </header>
