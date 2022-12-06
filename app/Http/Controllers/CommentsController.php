@@ -8,7 +8,11 @@ use Illuminate\Http\Request;
 
 class CommentsController extends Controller
 {
-    public function Store(StoreCommentRequest $request, $id)
+    public function __construct()
+    {
+        $this->middleware('word.filter');
+    }
+    public function store(StoreCommentRequest $request, $id)
     {
         $validated = $request->validated();
         $post = Team::find($id);

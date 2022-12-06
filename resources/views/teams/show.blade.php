@@ -57,7 +57,7 @@
 
         @foreach($team->comments as $comment)
 
-            <p>[ {{ $comment->user->name }} ]: {{ $comment->body }}</p>
+            <p>[{{ $comment->user->name }}]: {{ $comment->body }}</p>
             
         @endforeach
 
