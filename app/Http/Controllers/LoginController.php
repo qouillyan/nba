@@ -6,28 +6,30 @@ use Illuminate\Http\Request;
 
 class LoginController extends Controller
 {
-    public function __construct() {
+    public function __construct() 
+    {
         $this->middleware('guest', [ 'except' => 'destroy' ]);
     }
     
-    public function create() {
+    public function create() 
+    {
         return view('auth.login');
     }
 
-    public function store() {
+    public function store() 
+    {  
         if (!auth()->attempt(request(['email', 'password']))) 
         {
             return back()->withErrors([
                 'message' => 'Bad credentials.'
             ]);
         }
-
-        return redirect('/');
+        return redirect('/teams');
     }
 
-    public function destroy() {
+    public function destroy() 
+    {
         auth()->logout();
-
         return redirect('/login');
     }
 }
