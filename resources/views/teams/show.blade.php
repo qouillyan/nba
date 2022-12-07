@@ -12,7 +12,6 @@
 
     <p>City: {{ $team->city }}</p>
 
-
     <h3>Players: </h3>
         <table style="border: 1px solid black">
             <tr>
@@ -33,6 +32,24 @@
     @endforeach
 
         </table>
+
+        <h4>Team related news: </h4>
+
+        @foreach($team->news as $newsSingular)
+
+            <ul>
+                <li>
+                    <a href="{{ route('single-news', ['id' => $newsSingular->id]) }}">
+                        [{{ $newsSingular->created_at }}] {{ $newsSingular->title }}
+                    </a>
+                </li>
+            </ul>
+            
+        @endforeach
+
+        <a href="{{ route('news-by-teams', ['id' => $team->id]) }}">
+            All team related news
+        </a>
 
         <br>
 

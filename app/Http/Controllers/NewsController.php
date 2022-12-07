@@ -7,6 +7,12 @@ use Illuminate\Http\Request;
 
 class NewsController extends Controller
 {
+    public function __construct() 
+    {
+        $this->middleware('auth');
+        $this->middleware('verify.email');
+    }
+
     public function index()
     {
         $news = News::with('user')->latest()->paginate(10);

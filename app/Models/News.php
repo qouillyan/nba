@@ -9,7 +9,13 @@ class News extends Model
 {
     use HasFactory;
 
-    public function user() {
+    public function user() 
+    {
         return $this->belongsTo(User::class);
+    }
+
+    public function teams() 
+    {
+        return $this->belongsToMany(Team::class, 'news_teams', 'team_id', 'news_id');
     }
 }

@@ -5,6 +5,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\PlayersController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\TagsController;
 use App\Http\Controllers\TeamsController;
 use Illuminate\Support\Facades\Route;
 
@@ -37,3 +38,6 @@ Route::get('/logout', [LoginController::class, 'destroy']);
 
 Route::get('/news', [NewsController::class, 'index']);
 Route::get('/news/{id}', [NewsController::class, 'show'])->name('single-news');
+
+Route::get('/news/teams/{id}', [TagsController::class, 'show'])->name('news-by-teams');
+// Route::get('/news/teams/{id}', [TagsController::class, 'index']);
