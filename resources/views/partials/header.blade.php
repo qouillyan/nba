@@ -1,6 +1,7 @@
 <header>
     @if(Auth::check())
         <a href="/news">News</a>
+        <a href="/news/create">Submit</a>
         <a href="/teams">Teams</a>
         <a href="/logout">Log out</a>
         <a hred="/">{{ auth()->user()->name }}</a>

@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreNewsRequest;
 use App\Models\News;
+use App\Models\Team;
 use Illuminate\Http\Request;
 
 class NewsController extends Controller
@@ -23,5 +25,25 @@ class NewsController extends Controller
     {
         $newssg = News::with('user')->find($id);
         return view('news.show', compact('newssg'));
+    }
+
+    public function create()
+    {
+        $teams = Team::all();
+        return view('news.create', compact('teams'));
+    }
+
+    public function store(StoreNewsRequest $request)
+    {
+        $request->validated();
+        $post = News::create([
+            'title' => request('title'),
+            'content' => request('content'),
+            'user_id' => auth()->id(),
+        ]);
+        $post->teams()->attach(request('teams'));
+        $request = request();
+        session()->flash('message', 'Thank you for publishing article on www.nba.com');
+        return redirect('/news');
     }
 }

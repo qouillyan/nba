@@ -33,23 +33,28 @@
 
         </table>
 
-        <h4>Team related news: </h4>
 
-        @foreach($team->news as $newsSingular)
+    @if (count($team->news))
 
-            <ul>
-                <li>
-                    <a href="{{ route('single-news', ['id' => $newsSingular->id]) }}">
-                        [{{ $newsSingular->created_at }}] {{ $newsSingular->title }}
-                    </a>
-                </li>
-            </ul>
-            
-        @endforeach
+            <h4>Team related news: </h4>
+
+            @foreach($team->news as $newsSingular)
+
+                <ul>
+                    <li>
+                        <a href="{{ route('single-news', ['id' => $newsSingular->id]) }}">
+                            [{{ $newsSingular->created_at }}] {{ $newsSingular->title }}
+                        </a>
+                    </li>
+                </ul>
+                
+            @endforeach
 
         <a href="{{ route('news-by-teams', ['id' => $team->id]) }}">
             All team related news
         </a>
+
+    @endif
 
         <br>
 
@@ -70,6 +75,8 @@
 
         </form>
 
+    @if (count($team->comments))
+
         <h3>Comments</h3>
 
         @foreach($team->comments as $comment)
@@ -78,6 +85,10 @@
             
         @endforeach
 
+    @else
 
+        <p>Zero Comments</p>
+
+    @endif
 
 @endsection

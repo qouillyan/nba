@@ -36,8 +36,9 @@ Route::get('/login', [LoginController::class, 'create'])->name('login');
 Route::post('/login', [LoginController::class, 'store']);
 Route::get('/logout', [LoginController::class, 'destroy']);
 
+Route::post('/news', [NewsController::class, 'store']);
+Route::get('/news/create', [NewsController::class, 'create']);
 Route::get('/news', [NewsController::class, 'index']);
 Route::get('/news/{id}', [NewsController::class, 'show'])->name('single-news');
 
 Route::get('/news/teams/{id}', [TagsController::class, 'show'])->name('news-by-teams');
-// Route::get('/news/teams/{id}', [TagsController::class, 'index']);

@@ -6,6 +6,12 @@
 
     <h1>News</h1>
 
+    @if (session('message'))
+        <div class="alert alert-success">
+            {{ session('message') }}
+        </div>
+    @endif
+
     @foreach($news as $singlnews)
 
         <ul>
