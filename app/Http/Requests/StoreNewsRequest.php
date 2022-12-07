@@ -25,7 +25,7 @@ class StoreNewsRequest extends FormRequest
     {
         return [
             'title' => 'required|min:3|max:100',
-            'body' => 'required|min:10',
+            'content' => 'required|min:10',
             'teams' => 'sometimes|array'
         ];
     }

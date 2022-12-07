@@ -18,7 +18,7 @@
 
         <div class="mb-3">
             <label for="exampleFormControlTextarea1" class="form-label">Content</label>
-            <textarea name="body" class="form-control" id="exampleFormControlTextarea1" rows="5" placeholder="Content"></textarea>
+            <textarea name="content" class="form-control" id="exampleFormControlTextarea1" rows="5" placeholder="Content"></textarea>
         </div>
 
         @error('body')
