@@ -25,7 +25,31 @@
 
         @include('partials.header')
 
+        <main role="main" class="container">
+
         @yield('content')
+
+
+        @if (count($teamnews))
+            <aside class="col-md-4 blog-sidebar">
+
+                <div class="list-group">
+                    <h2>Sidebar</h2>
+                    @foreach($teamnews as $team)
+                        <ul>
+                            <li>
+                                <a href="{{ route('single-team', ['id' => $team->id]) }}">
+                                    {{ $team->name }}
+                                </a>
+                            </li>
+                        </ul>
+                    @endforeach
+                </div>
+
+            </aside>
+        @endif
+
+        </main>
 
     </body>
 

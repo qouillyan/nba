@@ -51,7 +51,7 @@
             @endforeach
 
         <a href="{{ route('news-by-teams', ['id' => $team->id]) }}">
-            All team related news
+            All team related news(click)
         </a>
 
     @endif
